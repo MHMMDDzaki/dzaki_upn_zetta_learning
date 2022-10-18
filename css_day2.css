@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("https://a-static.besthdwallpaper.com/genshin-impact-venti-wallpaper-1680x1260-77053_24.jpg");
+}
+
+header h1 {
+    background-color: black;
+    opacity: 0.9;
+    color: white;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+header {
+    margin-bottom: 100px;
+}
+
+.p_content {
+    text-align: justify;
+    width: 800px;
+    margin: 10px auto;
+}
+
+#content {
+    margin: 0 auto;
+    width: 80vw;
+    background-color: grey;
+    padding: 50px;
+    opacity: 0.9;
+}
+
+#content h3 {
+    color: white;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.cards .card img {
+    width: 150px;
+    margin: 20px 0 20px 50px;
+}
+
+.card {
+    border-radius: 20px;
+    background-color: darkgray;
+    margin: 0 auto;
+    width: 250px;
+    height: 280px;
+    text-align: justify;
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.container {
+    margin: 0 10px;
+    color: white;
+}
