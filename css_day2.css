@@ -52,7 +52,7 @@ header {
 .card {
     border-radius: 20px;
     background-color: darkgray;
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
     width: 250px;
     height: 280px;
     text-align: justify;
