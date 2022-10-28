@@ -49,7 +49,7 @@ let discount = 20
 //     console.log(status)
 // }
 
-function purchaseBook(bookName, purchasing) {
+function purchaseBook(bookName, purchasing, duration) {
     const result = book.find(({ name }) => name === bookName)
     if (result != undefined) {
         const totalDiscount = result.price * (discount / 100)
@@ -57,7 +57,6 @@ function purchaseBook(bookName, purchasing) {
         const totalTax = priceAfterDiscount * (tax / 100)
         const priceAfterTax = priceAfterDiscount - totalTax
         const totalBuy = priceAfterTax * purchasing
-        calcCredit(totalBuy)
         console.group()
         console.log("Stock ", result.stock)
         if (result.stock >= purchasing) {
@@ -70,7 +69,7 @@ function purchaseBook(bookName, purchasing) {
             console.log("Price after tax ", priceAfterTax)
             console.log("Total Price to pay ", totalBuy)
             console.log()
-            console.log("Price to pay with credit due every month ", pricePayPerMonth)
+            calcCredit(totalBuy,duration)
             console.groupEnd()
         } else {
             console.log("Book cannot purchased with the amount of stock")
@@ -79,10 +78,17 @@ function purchaseBook(bookName, purchasing) {
     }
 }
 
-function calcCredit(totalBuy){
+function calcCredit(totalBuy,duration){
+    const termpayment = []
     pricePayPerMonth = totalBuy + (totalBuy * (interest/100))
-    return pricePayPerMonth
+    for(let index=0; index<duration; index++){
+        termpayment.push({
+            month: index+1,
+            payment: pricePayPerMonth/duration
+        })
+        console.log("Price to pay with credit month "+ (termpayment[index].month)+ " " + (termpayment[index].payment))
+    }
 }
 
-// masukkan judul dan stok yang ingin dipesan
-purchaseBook("Sword Art Online", 5)
+// masukkan judul, stok yang ingin dipesan, dan durasi pembayaran
+purchaseBook("Sword Art Online", 5,5)
