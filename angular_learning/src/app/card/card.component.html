@@ -1,4 +1,4 @@
-<div *ngFor="let card of cardTitle">
+<div *ngFor="let card of cardTitle; let indexOfElement=index;">
   <div class="card" style="width: 18rem">
     <img src="{{ card.img }}" class="card-img-top" alt="{{ card.name }}" />
     <div class="card-body">
@@ -8,12 +8,12 @@
           <p class="card-text">Price : {{ card.price }}</p>
         </div>
         <div class="col">
-          <button type="button" class="btn btn-primary float-end" (click)="showDetail()">
+          <button type="button" class="btn btn-primary float-end" (click)="showDetail(indexOfElement)">
             Detail
           </button>
         </div>
       </div>
-      <p *ngIf="buttonDetail">{{card.detail}}</p>
+      <p *ngIf="buttonDetail[indexOfElement]">{{card.detail}}</p>
     </div>
   </div>
 </div>

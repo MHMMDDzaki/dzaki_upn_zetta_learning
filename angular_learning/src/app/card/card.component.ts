@@ -13,15 +13,16 @@ export class CardComponent implements OnInit {
     {name:'tempura',price:5000,detail:"Tempura is a popular Japanese dish in which food (most commonly seafood, vegetables, or sushi) is lightly battered and deep fried to create a light, crispy coating.",img:"https://www.masakapahariini.com/wp-content/uploads/2021/09/shutterstock_1257149590-780x440.jpg"}
   ]
 
-  buttonDetail: boolean = false;
+  buttonDetail: boolean[] = [false,false,false,false];
+  //buttonDetail: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  showDetail(){
-    this.buttonDetail = !this.buttonDetail;
+  showDetail(param){
+    this.buttonDetail[param] = !this.buttonDetail[param];
   }
 
 }
