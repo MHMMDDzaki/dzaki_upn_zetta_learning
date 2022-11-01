@@ -1,18 +1,19 @@
-<div class="card mb-5 card-width">
-  <img src="{{ element.img }}" class="card-img-top" alt="{{ element.name }}" />
-  <div class="card-body">
-    <h5 class="card-title">{{ element.name }}</h5>
-    <p class="card-text">Price : {{ element.price }}</p>
-    <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-primary">Add Favorite</button>
-      <button
-        type="button"
-        class="btn btn-primary"
-        (click)="showDetail(indexOfElement)"
-      >
-        Detail
-      </button>
+<div *ngFor="let card of cardTitle; let indexOfElement=index;">
+  <div class="card" style="width: 18rem">
+    <img src="{{ card.img }}" class="card-img-top" alt="{{ card.name }}" />
+    <div class="card-body">
+      <h5 class="card-title">{{ card.name }}</h5>
+      <div class="row">
+        <div class="col">
+          <p class="card-text">Price : {{ card.price }}</p>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary float-end" (click)="showDetail(indexOfElement)">
+            Detail
+          </button>
+        </div>
+      </div>
+      <p *ngIf="buttonDetail[indexOfElement]">{{card.detail}}</p>
     </div>
-    <p class="mt-3" *ngIf="buttonDetail[indexOfElement]">{{ element.detail }}</p>
   </div>
 </div>
