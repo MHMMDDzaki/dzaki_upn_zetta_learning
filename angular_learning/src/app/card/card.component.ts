@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -13,6 +13,7 @@ export class CardComponent implements OnInit {
     img: string;
   }
   @Input() indexOfElement: number;
+  @Output('cartAdd') cartAdded = new EventEmitter<{cartName:string, cartPrice:number, cartDetail:string, cartImg:string}>();
 
   buttonDetail: boolean[] = [false, false, false, false];
   //buttonDetail: boolean = false;
@@ -24,6 +25,16 @@ export class CardComponent implements OnInit {
 
   showDetail(param) {
     this.buttonDetail[param] = !this.buttonDetail[param];
+  }
+
+
+  onCartAdded(){
+    this.cartAdded.emit({
+      cartName: this.element.name,
+      cartPrice: this.element.price,
+      cartDetail: this.element.detail,
+      cartImg: this.element.img
+    })
   }
 
 }

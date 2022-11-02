@@ -6,13 +6,22 @@
         *ngFor="let cardElement of cardElements; let indexOfElement = index"
         [card]="cardElement"
         [indexOfElement]="indexOfElement"
+        (cartAdd)="onCartAdded($event)"
         class="mx-5"
-        (CartCreated)="onCartAdded($event)"
       >
       </app-card>
     </div>
   </div>
-  <div class="container border">
-    <h3 class="text-center my-5">FAVORITE LIST</h3>
+  <div class="container">
+    <h3 class="text-center my-5">CART LIST</h3>
+    <div class="d-flex flex-row justify-content-evenly flex-wrap">
+        <app-cart
+          *ngFor="let cartElement of cartElements; let indexOfCart = index"
+          [cart]="cartElement"
+          (cartDel)="onCartDeleted($event)"
+          class="mx-5"
+        >
+        </app-cart>
+      </div>
   </div>
 </div>

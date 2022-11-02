@@ -13,8 +13,24 @@ export class AppComponent {
     { name: 'tempura', price: 5000, detail: "Tempura is a popular Japanese dish in which food (most commonly seafood, vegetables, or sushi) is lightly battered and deep fried to create a light, crispy coating.", img: "https://www.masakapahariini.com/wp-content/uploads/2021/09/shutterstock_1257149590-780x440.jpg" },
   ];
 
+  cartElements = [];
 
-  onCartAdded() {
-
+  onCartAdded(cartInfo:{cartName: string, cartPrice: number, cartDetail: string, cartImg: string}){
+    this.cartElements.push({
+      name: cartInfo.cartName,
+      price: cartInfo.cartPrice,
+      detail: cartInfo.cartDetail,
+      img: cartInfo.cartImg
+    });
   }
+
+ 
+
+  onCartDeleted(cartInfo:{cartName: string, cartPrice: number, cartDetail: string, cartImg: string}){
+    this.cartElements.splice(this.cartElements.findIndex(item => {
+      return item.name === cartInfo.cartName
+    }),1)
+  }
+
+
 }
