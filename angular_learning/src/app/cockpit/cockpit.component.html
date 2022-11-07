@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-12">
+      <p>Add new list about what you want to do!</p>
+      <label>To Do List</label>
+      <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+      <input type="text" class="form-control" #toDoContent>
+      <br>
+      <button
+        class="btn btn-primary"
+        (click)="onAddToDoList(toDoContent)">Add List</button>
+    </div>
+  </div>

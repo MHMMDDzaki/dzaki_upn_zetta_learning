@@ -1,27 +1,15 @@
-# AngularLearning
+# QUIZ
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
+1.  - PostStart ==> dijalankan segera setelah suatu kontainer dibuat, hanya saja hook ini belum tentu akan dieksekusi sebelum    
+      ENTRYPOINT dari kontainer dan tidak ada parameter yang diberikan pada handler.
+    - PreStop ==> dijalankan sesaat sebelum kontainer dimatikan, karena req suatu API/event pengaturan.
 
-## Development server
+2.  dipanggil segera saat default change detector mengecek properti directive's data-bound untuk pertama kalinya. ngOnInit hanya 
+    dipanggil sekali disaat server dijalankan/komponen di inisialisasikan.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+3.  dipanggil setelah semuah view komponen (dan view child) di inisialisasikan.
 
-## Code scaffolding
+4.  dipanggil setelah konten pada view berubah diakibatkan oleh sebuah event input.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+5.  ketika melakukan reload maka akan memanggil ngOnInit dan ngOnChanges dengan value sebelumnya kosong karena value dari konten 
+    belum berubah. kemudian ketika tombol change yang memiliki nilai input didalamnya di tekan maka pada ngOnChange akan merubah value dari konten dan memiliki value sebelumnya yang bernilai value pertama yang dimiliki konten sebelum dirubah.

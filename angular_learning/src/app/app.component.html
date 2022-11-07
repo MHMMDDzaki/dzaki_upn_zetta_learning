@@ -1,1 +1,27 @@
-<h3>Im in the app component</h3>
+<div class="container">
+  <app-cockpit (toDoCreated)="onToDoListAdded($event)"></app-cockpit>
+  <hr />
+  <div class="row">
+    <div class="col-xs-12">
+      <app-todo-element
+        *ngFor="let toDoElement of toDoElements; let i = index;"
+        [toDoElement]="toDoElement"
+        [toDo]="toDoElement.doList"
+      >
+        <div class="d-flex flex-row justify-content-between" #contentParagraph>
+            <div>
+                <p class="my-2">
+                    <strong *ngIf="toDoElement" style="color: red">
+                      {{ toDoElement.doList }}</strong>
+                </p>
+            </div>
+            <div>
+                <button class="btn btn-danger" (click)="onDestroy(i)">
+                    Destroy Component
+                </button>
+            </div>
+        </div>
+      </app-todo-element>
+    </div>
+  </div>
+</div>
