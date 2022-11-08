@@ -1,0 +1,16 @@
+<div class="card mb-5 card-width">
+  <img
+    src="{{ elementC.img }}"
+    class="card-img-top"
+    alt="{{ elementC.name }}"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ elementC.name }}</h5>
+    <p class="card-text">Price : {{ elementC.price }}</p>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary" (click)="deleteCart(elementC.name,elementC.price,elementC.detail,elementC.img)">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>
