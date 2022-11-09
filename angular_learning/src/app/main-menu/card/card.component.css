@@ -6,3 +6,11 @@ img {
     width: 230px;
     min-height: 202px;
 }
+
+.mat-card-actions{
+    padding: 0;
+}
+
+.mat-card-content{
+    margin-bottom: 10px;
+}
