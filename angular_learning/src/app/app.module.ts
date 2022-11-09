@@ -11,9 +11,10 @@ import { CartComponent } from './main-menu/cart/cart.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CardDetailComponent } from './main-menu/card/card-detail/card-detail.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-  {path:'', component: AppComponent},
+  {path:'', component: HomeComponent},
   {path:'main-menu', component: MainMenuComponent},
   {path:'main-menu/card/:name', component: CardDetailComponent}
 ]
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     CardComponent,
     CartComponent,
     CardDetailComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

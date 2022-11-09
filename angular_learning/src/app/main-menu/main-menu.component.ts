@@ -10,7 +10,6 @@ export class MainMenuComponent implements OnInit {
   cardElements: {name: string, price: number, detail: string, img: string}[] = []
   cartElements: {name: string, price: number, detail: string, img: string}[] = []
 
-
   constructor(private CardService: CardService){}
 
   ngOnInit(): void {
