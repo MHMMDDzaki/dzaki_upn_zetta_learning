@@ -12,11 +12,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { CardDetailComponent } from './main-menu/card/card-detail/card-detail.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HomeComponent } from './home/home.component';
+import { ErrorComponent } from './error/error.component';
 
 const appRoutes: Routes = [
-  {path:'', component: HomeComponent},
+  {path:'', component: HomeComponent}, // redirect when url is empty
   {path:'main-menu', component: MainMenuComponent},
-  {path:'main-menu/card/:name', component: CardDetailComponent}
+  {path:'main-menu/card/:name', component: CardDetailComponent},
+  {path:'**', component: ErrorComponent} // to redirect when url is not defined
 ]
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     CartComponent,
     CardDetailComponent,
     MainMenuComponent,
-    HomeComponent
+    HomeComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

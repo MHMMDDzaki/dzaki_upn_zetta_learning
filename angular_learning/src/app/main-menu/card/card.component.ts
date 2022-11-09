@@ -15,17 +15,11 @@ export class CardComponent implements OnInit {
     img: string;
   }
   @Input() indexOfElement: number;
-
-  buttonDetail: boolean[] = [false, false, false, false];
   //buttonDetail: boolean = false;
 
   constructor(private CardService: CardService) { }
 
   ngOnInit(): void {
-  }
-
-  showDetail(param) {
-    this.buttonDetail[param] = !this.buttonDetail[param];
   }
 
 

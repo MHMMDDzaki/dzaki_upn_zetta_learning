@@ -16,17 +16,13 @@
         onCartAdded(element.name, element.price, element.detail, element.img)
       "
     >
-      Add to Favorite
+      Add to Cart
     </button>
     <button
       mat-button
-      (click)="showDetail(indexOfElement)"
       [routerLink]="['/main-menu/card',element.name]"
     >
       Detail
     </button>
-    <p class="mt-3" *ngIf="buttonDetail[indexOfElement]">
-      {{ element.detail }}
-    </p>
   </mat-card-actions>
 </mat-card>
