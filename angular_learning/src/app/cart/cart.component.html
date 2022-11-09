@@ -1,0 +1,19 @@
+<mat-card class="mb-5 card-width">
+  <img
+    mat-card-image
+    src="{{ elementC.img }}"
+    class="card-img-top"
+    alt="{{ elementC.name }}"
+  />
+  <mat-card-content>
+    <h1>{{ elementC.name }}</h1>
+    <p>Price : {{ elementC.price }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-button
+      (click)="deleteCart(elementC.name,elementC.price,elementC.detail,elementC.img)">
+      Remove
+    </button>
+  </mat-card-actions>
+</mat-card>

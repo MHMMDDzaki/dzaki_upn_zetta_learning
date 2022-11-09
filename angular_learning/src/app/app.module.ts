@@ -6,17 +6,23 @@ import { MaterialExampleModule } from '../material.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core'
+import { CardComponent } from './card/card.component';
+import { CartComponent } from './cart/cart.component'
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialExampleModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialExampleModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
