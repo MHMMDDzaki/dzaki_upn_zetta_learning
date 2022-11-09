@@ -21,6 +21,7 @@
     <button
       mat-button
       (click)="showDetail(indexOfElement)"
+      [routerLink]="['/main-menu/card',element.name]"
     >
       Detail
     </button>

@@ -25,6 +25,9 @@ export class CardService {
         })
     }
 
+    getCard(cartName: string, cartPrice: number, cartDetail: string, cartImg: string) {
+    }
+
     CartDeleted(cartName: string, cartPrice: number, cartDetail: string, cartImg: string) {
         console.log(cartName)
         this.cartElements.splice(this.cartElements.findIndex(item => {
