@@ -1,1 +1,85 @@
-<h1>It Works</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <!-- <div class="" formGroupName="userData">
+
+          
+        </div> -->
+        <mat-form-field appearance="outline" class="form-group">
+          <mat-label>Enter your ID number</mat-label>
+          <input matInput type="text" placeholder="12da3" formControlName="username">
+          <mat-error 
+            *ngIf="!signupForm.get('id').valid && signupForm.get('id').touched">
+            Please enter a valid ID
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline" class="form-group">
+          <mat-label>Enter your username</mat-label>
+          <input matInput type="text" placeholder="dzaki" formControlName="username">
+          <mat-error 
+            *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">
+            Please enter a valid username
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline" class="form-group">
+          <mat-label>Enter your age</mat-label>
+          <input matInput type="number" placeholder="2" formControlName="username">
+          <mat-error 
+            *ngIf="!signupForm.get('age').valid && signupForm.get('age').touched">
+            Please enter a valid age
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <label class="me-3">Gender : </label>
+        <mat-radio-group formControlName="gender" class="radio" *ngFor="let gender of genders">
+          <mat-radio-button [value]="gender" class="me-3">{{gender}}</mat-radio-button>
+        </mat-radio-group>
+        <br/>
+        <mat-form-field appearance="outline" class="form-group">
+          <mat-label>Enter your email</mat-label>
+          <input matInput type="email" placeholder="dzaki@email.com" formControlName="email">
+          <mat-error 
+            *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+            Please enter a valid email
+          </mat-error>
+        </mat-form-field>
+        <br/>
+        <mat-form-field appearance="fill">
+          <mat-label>Position</mat-label>
+          <mat-select formControlName="position">
+            <mat-option value="DKI Jakarta">DKI Jakarta</mat-option>
+            <mat-option value="DI Yogyakarta">DI Yogyakarta</mat-option>
+            <mat-option value="Surabaya">Surabaya</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br/>
+        <mat-form-field appearance="fill">
+          <mat-label>Marital Status</mat-label>
+          <mat-select formControlName="maritalStatus">
+            <mat-option value="married">Married</mat-option>
+            <mat-option value="single">Single</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input type="radio" formControlName="gender" [value]="gender" />{{
+              gender
+            }}
+          </label>
+        </div> -->
+
+        <span
+          *ngIf="!signupForm.valid && signupForm.touched"
+          class="help-block"
+          >Please enter valid data
+        </span>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
