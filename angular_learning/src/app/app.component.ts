@@ -9,6 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   genders = ['male', 'female'];
   signupForm: FormGroup
+  userData = []
+  userTemp: object
 
 
   ngOnInit(): void {
@@ -24,17 +26,20 @@ export class AppComponent implements OnInit {
       'gender': new FormControl(null),
       'position': new FormControl(null),
       'maritalStatus': new FormControl(null),
-      // 'addresses': new FormGroup({
-      //   'address': new FormControl(null, Validators.required),
-      //   'zipcode': new FormControl(null, [Validators.required, Validators.email]),
-      //   'city': new FormControl(null, [Validators.required, Validators.email]),
-      //   'country': new FormControl(null, [Validators.required, Validators.email]),
-      // }),
+      'addresses': new FormGroup({
+        'address': new FormControl(null, Validators.required),
+        'zipcode': new FormControl(null, [Validators.required]),
+        'city': new FormControl(null, [Validators.required]),
+        'country': new FormControl(null, [Validators.required]),
+      }),
     })
   }
 
   onSubmit(){
-    console.log(this.signupForm)
+    this.userTemp = this.signupForm.value
+    console.log(this.userTemp)
+    this.userData.push(this.userTemp)
+    console.log(this.userData)
   }
 
 }
