@@ -4,11 +4,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserFormService {
-  DataUser = []
+  DataUser = [
+    {
+      id: 'AD134',
+      username: 'Dzakzo',
+      age: 29,
+      email: 'dzakzo@email',
+      gender: 'Male',
+      position: 'Front End',
+      maritalStatus: 'Single',
+      address: 'Cempaka Putih',
+      zipcode: 12345,
+      city: 'Jakarta',
+      country: 'Indonesia'
+    }
+  ]
 
   constructor() { }
 
-  addUser(param){
+  addUser(param) {
     this.DataUser.push(param)
   }
 }

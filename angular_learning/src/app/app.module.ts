@@ -5,21 +5,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MaterialExampleModule } from 'src/material.module';
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
-import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AddUserComponent } from './home/add-user/add-user.component';
 
 const routes: Routes = [
-  {path:'/', component: HomeComponent}
+  {path:'', component: HomeComponent},
+  {path:'add-user', component: AddUserComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    UserDetailComponent,
-    HomeComponent
+    HomeComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

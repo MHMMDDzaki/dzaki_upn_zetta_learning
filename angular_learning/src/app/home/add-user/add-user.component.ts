@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserFormService } from './user-form.service';
+import { UserFormService } from '../../user-form.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.css']
 })
-export class AppComponent implements OnInit {
+export class AddUserComponent implements OnInit {
   genders = ['male', 'female'];
   signupForm: FormGroup
   userData: {
