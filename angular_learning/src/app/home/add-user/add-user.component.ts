@@ -20,7 +20,7 @@ export class AddUserComponent implements OnInit {
     position: string,
     maritalStatus: string,
     address: string,
-    zipcode: string,
+    zipcode: number,
     city: string,
     country: string
   }

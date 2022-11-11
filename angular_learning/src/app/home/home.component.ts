@@ -8,24 +8,9 @@ import { UserFormService } from '../user-form.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  listUser: {
-    id: string,
-    username: string,
-    age: number,
-    email: string,
-    gender: string,
-    position: string,
-    maritalStatus: string,
-    address: string,
-    zipcode: string,
-    city: string,
-    country: string
-  }[] = []
-  
   constructor(private userFormService: UserFormService, private router: Router) { }
 
   ngOnInit(): void {
-    this.listUser = this.userFormService.DataUser
   }
 
 }

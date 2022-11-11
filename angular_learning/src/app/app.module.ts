@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AddUserComponent } from './home/add-user/add-user.component';
+import { UsersComponent } from './home/users/users.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    AddUserComponent
+    AddUserComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
