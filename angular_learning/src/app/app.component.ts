@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserFormService } from './user-form.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,25 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   genders = ['male', 'female'];
   signupForm: FormGroup
-  userData = []
-  userTemp: object
+  userData: {
+    id: string,
+    username: string,
+    age: number,
+    email: string,
+    gender: string,
+    position: string,
+    maritalStatus: string,
+    address: string,
+    zipcode: string,
+    city: string,
+    country: string
+  }
+
+  links = ['First', 'Second', 'Third'];
+  activeLink = this.links[0];
 
 
+  constructor(private userFormService: UserFormService){}
   ngOnInit(): void {
     this.signupForm = new FormGroup({
       // 'userData': new FormGroup({
@@ -35,11 +51,28 @@ export class AppComponent implements OnInit {
     })
   }
 
+  route(param){
+    
+  }
+
   onSubmit(){
-    this.userTemp = this.signupForm.value
-    console.log(this.userTemp)
-    this.userData.push(this.userTemp)
-    console.log(this.userData)
+    this.userData = {
+      id: this.signupForm.value.id,
+      username: this.signupForm.value.username,
+      age: this.signupForm.value.age,
+      email: this.signupForm.value.email,
+      gender: this.signupForm.value.gender,
+      position: this.signupForm.value.position,
+      maritalStatus: this.signupForm.value.maritalStatus,
+      address: this.signupForm.value.addresses.address,
+      zipcode: this.signupForm.value.addresses.zipcode,
+      city: this.signupForm.value.addresses.city,
+      country: this.signupForm.value.addresses.country
+    }
+    this.userFormService.addUser(this.userData)
+  //   console.log(this.userTemp)
+  //   this.userData.push(this.userTemp)
+  //   console.log(this.userData)
   }
 
 }

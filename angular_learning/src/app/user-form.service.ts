@@ -4,6 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserFormService {
+  DataUser = []
 
   constructor() { }
+
+  addUser(param){
+    this.DataUser.push(param)
+  }
 }

@@ -1,4 +1,11 @@
-<div class="container">
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  <a mat-tab-link *ngFor="let link of links"
+     (click)="route(link)"
+     [active]="activeLink == link"> {{link}} </a>
+  <a mat-tab-link disabled>Disabled Link</a>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+<!-- <div class="container">
   <mat-card>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
       <h3>User Form</h3>
@@ -168,4 +175,4 @@
       <button class="btn btn-primary mt-4" type="submit">Submit</button>
     </form>
   </mat-card>
-</div>
+</div> -->
