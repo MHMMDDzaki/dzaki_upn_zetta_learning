@@ -23,8 +23,7 @@ export class AppComponent implements OnInit {
     city: string,
     country: string
   }
-
-  links = ['First', 'Second', 'Third'];
+  links = [{name:'Home',url:'/'}];
   activeLink = this.links[0];
 
 
