@@ -53,7 +53,10 @@ export class UserFormService {
       this.DataUser.push(param)
     // } else {
     //   alert('Please Input Diffrent ID')
-    // }
-    
+    // } 
+  }
+
+  getUser(index){
+    return this.DataUser[index]
   }
 }

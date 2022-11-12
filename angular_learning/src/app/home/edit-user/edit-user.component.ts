@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserFormService } from 'src/app/user-form.service';
 
 @Component({
@@ -25,9 +25,16 @@ export class EditUserComponent implements OnInit {
     country: string
   }
 
-  constructor(private userFormService: UserFormService, private router: Router) { }
+  constructor(private userFormService: UserFormService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams
+      .subscribe(params => {
+        console.log(params)
+      })
+
+    this.userFormService.getUser()
+    
     this.signupForm = new FormGroup({
       // 'userData': new FormGroup({
       //   'username': new FormControl(null, Validators.required),
@@ -64,7 +71,7 @@ export class EditUserComponent implements OnInit {
       country: this.signupForm.value.addresses.country
     }
     console.log(this.userData)
-    this.userFormService.addUser(this.userData)
+    // this.userFormService.addUser(this.userData)
     this.router.navigate([''])
   }
 
