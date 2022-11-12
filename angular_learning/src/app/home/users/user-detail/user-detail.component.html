@@ -1,1 +1,22 @@
-<p>user-detail works!</p>
+<div class="card-width mt-5">
+    <h1 class="text-center text-uppercase mt-2">{{ user.username }}</h1>
+    <h4 class="text-center">{{ user.id }}</h4>
+    <hr>
+    <h4>User Info : </h4>
+    <p class="fs-6">
+      Age : {{ user.age }}<br/>
+      Email : {{ user.email }}<br/>
+      Gender : {{ user.gender }}<br/>
+      Position : {{ user.position }}<br/>
+    </p>
+    <hr>
+    <h4>Address : </h4>
+    <p class="fs-6">
+        address : {{ user.address }}<br/>
+        zipcode : {{ user.zipcode }}<br/>
+        city : {{ user.city }}<br/>
+        country : {{ user.country }}<br/>
+    </p>
+    <hr>
+    <button class="btn btn-primary" [routerLink]="['']">Home</button>
+  </div>
