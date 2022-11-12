@@ -1,6 +1,10 @@
-<div class="d-flex justify-content-around">
-    <app-users>
-        
-    </app-users>
+<div class="nav">
+    <button class="btn btn-primary" [routerLink]="['/add-user']">ADD USER</button>
+</div>
+<div class="d-flex justify-content-around cards mx-auto flex-wrap">
+    <app-users
+        *ngFor="let listUser of listUsers; let i = index"
+        [userList]="listUser"
+    ></app-users>
 </div>
 

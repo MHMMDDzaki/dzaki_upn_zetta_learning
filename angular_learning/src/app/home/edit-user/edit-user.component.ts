@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserFormService } from '../../user-form.service';
+import { UserFormService } from 'src/app/user-form.service';
 
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.css']
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.css']
 })
-export class AddUserComponent implements OnInit {
+export class EditUserComponent implements OnInit {
   genders = ['male', 'female'];
   signupForm: FormGroup
   userData: {
@@ -25,7 +25,8 @@ export class AddUserComponent implements OnInit {
     country: string
   }
 
-  constructor(private userFormService: UserFormService, private router: Router){}
+  constructor(private userFormService: UserFormService, private router: Router) { }
+
   ngOnInit(): void {
     this.signupForm = new FormGroup({
       // 'userData': new FormGroup({
@@ -47,7 +48,8 @@ export class AddUserComponent implements OnInit {
       }),
     })
   }
-  onSubmit(){
+
+  onEdit(){
     this.userData = {
       id: this.signupForm.value.id,
       username: this.signupForm.value.username,
