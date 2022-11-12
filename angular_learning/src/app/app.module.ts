@@ -10,11 +10,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddUserComponent } from './home/add-user/add-user.component';
 import { UsersComponent } from './home/users/users.component';
 import { EditUserComponent } from './home/edit-user/edit-user.component';
+import { UserDetailComponent } from './home/users/user-detail/user-detail.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'add-user', component: AddUserComponent},
-  {path:'edit-user', component: EditUserComponent}
+  {path:'edit-user', component: EditUserComponent},
+  {path:'detail-user', component: UserDetailComponent}
 ]
 
 @NgModule({
@@ -23,7 +25,8 @@ const routes: Routes = [
     HomeComponent,
     AddUserComponent,
     UsersComponent,
-    EditUserComponent
+    EditUserComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

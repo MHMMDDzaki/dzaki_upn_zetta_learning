@@ -9,7 +9,7 @@ import { UserFormService } from '../../user-form.service';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  genders = ['male', 'female'];
+  genders = ['Male', 'Female'];
   signupForm: FormGroup
   userData: {
     id: string,
@@ -36,9 +36,9 @@ export class AddUserComponent implements OnInit {
       'username': new FormControl(null, Validators.required),
       'age': new FormControl(null, Validators.required),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'gender': new FormControl(null),
-      'position': new FormControl(null),
-      'maritalStatus': new FormControl(null),
+      'gender': new FormControl(null ,Validators.required),
+      'position': new FormControl(null,Validators.required),
+      'maritalStatus': new FormControl(null, Validators.required),
       'addresses': new FormGroup({
         'address': new FormControl(null, Validators.required),
         'zipcode': new FormControl(null, [Validators.required]),
@@ -62,8 +62,9 @@ export class AddUserComponent implements OnInit {
       country: this.signupForm.value.addresses.country
     }
     console.log(this.userData)
-    this.userFormService.addUser(this.userData)
-    this.router.navigate([''])
+    if(this.userFormService.addUser(this.userData) === 1){
+      this.router.navigate([''])
+    }
   }
 
 }

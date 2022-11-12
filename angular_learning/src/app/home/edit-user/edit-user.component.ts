@@ -9,7 +9,7 @@ import { UserFormService } from 'src/app/user-form.service';
   styleUrls: ['./edit-user.component.css']
 })
 export class EditUserComponent implements OnInit {
-  genders = ['male', 'female'];
+  genders = ['Male', 'Female'];
   signupForm: FormGroup
   userData: {
     id: string,
@@ -30,28 +30,27 @@ export class EditUserComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
-        console.log(params)
+        this.userData = this.userFormService.getUser(this.userFormService.DataUser.findIndex(item => { return item.id === params['id']}))
+        console.log(this.userData)
       })
-
-    this.userFormService.getUser()
     
     this.signupForm = new FormGroup({
       // 'userData': new FormGroup({
       //   'username': new FormControl(null, Validators.required),
       //   'email': new FormControl(null, [Validators.required, Validators.email]),
       // }),
-      'id': new FormControl(null, Validators.required),
-      'username': new FormControl(null, Validators.required),
-      'age': new FormControl(null, Validators.required),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'gender': new FormControl(null),
-      'position': new FormControl(null),
-      'maritalStatus': new FormControl(null),
+      'id': new FormControl(this.userData.id, Validators.required),
+      'username': new FormControl(this.userData.username, Validators.required),
+      'age': new FormControl(this.userData.age, Validators.required),
+      'email': new FormControl(this.userData.email, [Validators.required, Validators.email]),
+      'gender': new FormControl(this.userData.gender, Validators.required),
+      'position': new FormControl(this.userData.position, Validators.required),
+      'maritalStatus': new FormControl(this.userData.maritalStatus, Validators.required),
       'addresses': new FormGroup({
-        'address': new FormControl(null, Validators.required),
-        'zipcode': new FormControl(null, [Validators.required]),
-        'city': new FormControl(null, [Validators.required]),
-        'country': new FormControl(null, [Validators.required]),
+        'address': new FormControl(this.userData.address, Validators.required),
+        'zipcode': new FormControl(this.userData.zipcode, [Validators.required]),
+        'city': new FormControl(this.userData.city, [Validators.required]),
+        'country': new FormControl(this.userData.country, [Validators.required]),
       }),
     })
   }
@@ -71,7 +70,7 @@ export class EditUserComponent implements OnInit {
       country: this.signupForm.value.addresses.country
     }
     console.log(this.userData)
-    // this.userFormService.addUser(this.userData)
+    this.userFormService.editUser(this.userData)
     this.router.navigate([''])
   }
 

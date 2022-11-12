@@ -5,7 +5,7 @@
     <p>{{ listUser.gender }} | {{ listUser.position }}</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>DETAIL</button>
+    <button mat-button [routerLink]="['/detail-user']" [queryParams]="{id: listUser.id}">DETAIL</button>
     <button mat-button [routerLink]="['/edit-user']" [queryParams]="{id: listUser.id}">EDIT</button>
   </mat-card-actions>
 </mat-card>
