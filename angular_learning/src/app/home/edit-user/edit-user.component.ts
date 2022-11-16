@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserFormService } from 'src/app/user-form.service';
 
@@ -25,7 +25,7 @@ export class EditUserComponent implements OnInit {
     country: string
   }
 
-  constructor(private userFormService: UserFormService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private userFormService: UserFormService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.route.queryParams
@@ -34,25 +34,23 @@ export class EditUserComponent implements OnInit {
         console.log(this.userData)
       })
     
-    this.signupForm = new FormGroup({
-      // 'userData': new FormGroup({
-      //   'username': new FormControl(null, Validators.required),
-      //   'email': new FormControl(null, [Validators.required, Validators.email]),
-      // }),
-      'id': new FormControl(this.userData.id, Validators.required),
-      'username': new FormControl(this.userData.username, Validators.required),
-      'age': new FormControl(this.userData.age, Validators.required),
-      'email': new FormControl(this.userData.email, [Validators.required, Validators.email]),
-      'gender': new FormControl(this.userData.gender, Validators.required),
-      'position': new FormControl(this.userData.position, Validators.required),
-      'maritalStatus': new FormControl(this.userData.maritalStatus, Validators.required),
-      'addresses': new FormGroup({
-        'address': new FormControl(this.userData.address, Validators.required),
-        'zipcode': new FormControl(this.userData.zipcode, [Validators.required]),
-        'city': new FormControl(this.userData.city, [Validators.required]),
-        'country': new FormControl(this.userData.country, [Validators.required]),
-      }),
-    })
+      const address_temp = this.fb.group({
+        address: [this.userData.address, Validators.required],
+        zipcode: [this.userData.zipcode, Validators.required],
+        city: [this.userData.city, Validators.required],
+        country: [this.userData.country, Validators.required]
+      })
+  
+      this.signupForm = this.fb.group({
+        id: [this.userData.id, Validators.required],
+        username: [this.userData.username, Validators.required],
+        age: [this.userData.age, Validators.required],
+        email: [this.userData.email, [Validators.required, Validators.email]],
+        gender: [this.userData.gender, Validators.required],
+        position: [this.userData.position, Validators.required],
+        maritalStatus: [this.userData.maritalStatus, Validators.required],
+        addresses: address_temp
+      })
   }
 
   onEdit(){

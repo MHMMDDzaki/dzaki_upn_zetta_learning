@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormArray, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserFormService } from '../../user-form.service';
 
@@ -25,46 +25,55 @@ export class AddUserComponent implements OnInit {
     country: string
   }
 
-  constructor(private userFormService: UserFormService, private router: Router){}
+  constructor(private userFormService: UserFormService, private router: Router, private fb: FormBuilder){}
+
   ngOnInit(): void {
-    this.signupForm = new FormGroup({
-      // 'userData': new FormGroup({
-      //   'username': new FormControl(null, Validators.required),
-      //   'email': new FormControl(null, [Validators.required, Validators.email]),
-      // }),
-      'id': new FormControl(null, Validators.required),
-      'username': new FormControl(null, Validators.required),
-      'age': new FormControl(null, Validators.required),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
-      'gender': new FormControl(null ,Validators.required),
-      'position': new FormControl(null,Validators.required),
-      'maritalStatus': new FormControl(null, Validators.required),
-      'addresses': new FormGroup({
-        'address': new FormControl(null, Validators.required),
-        'zipcode': new FormControl(null, [Validators.required]),
-        'city': new FormControl(null, [Validators.required]),
-        'country': new FormControl(null, [Validators.required]),
-      }),
+    this.signupForm = this.fb.group({
+      id: [null, Validators.required],
+      username: [null, Validators.required],
+      age: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      gender: [null, Validators.required],
+      position: [null, Validators.required],
+      maritalStatus: [null, Validators.required],
+      addresses: this.fb.array([])
     })
   }
+
+  get getAddressess(){
+    return this.signupForm.get('addresses') as FormArray
+  }
+
+  onAddAddress(){
+    const address_temp = this.fb.group({
+      address: [null],
+      zipcode: [null],
+      city: [null],
+      country: [null]
+    })
+
+    this.getAddressess.push(address_temp)
+  }
+
   onSubmit(){
-    this.userData = {
-      id: this.signupForm.value.id,
-      username: this.signupForm.value.username,
-      age: this.signupForm.value.age,
-      email: this.signupForm.value.email,
-      gender: this.signupForm.value.gender,
-      position: this.signupForm.value.position,
-      maritalStatus: this.signupForm.value.maritalStatus,
-      address: this.signupForm.value.addresses.address,
-      zipcode: this.signupForm.value.addresses.zipcode,
-      city: this.signupForm.value.addresses.city,
-      country: this.signupForm.value.addresses.country
-    }
-    console.log(this.userData)
-    if(this.userFormService.addUser(this.userData) === 1){
-      this.router.navigate([''])
-    }
+    console.log(this.signupForm.value)
+    // this.userData = {
+    //   id: this.signupForm.value.id,
+    //   username: this.signupForm.value.username,
+    //   age: this.signupForm.value.age,
+    //   email: this.signupForm.value.email,
+    //   gender: this.signupForm.value.gender,
+    //   position: this.signupForm.value.position,
+    //   maritalStatus: this.signupForm.value.maritalStatus,
+    //   address: this.signupForm.value.addresses.address,
+    //   zipcode: this.signupForm.value.addresses.zipcode,
+    //   city: this.signupForm.value.addresses.city,
+    //   country: this.signupForm.value.addresses.country
+    // }
+    // console.log(this.userData)
+    // if(this.userFormService.addUser(this.userData) === 1){
+    //   this.router.navigate([''])
+    // }
   }
 
 }
