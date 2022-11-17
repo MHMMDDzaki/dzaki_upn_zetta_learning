@@ -48,10 +48,10 @@ export class EditUserComponent implements OnInit {
   onAddAddress(param){
     for(let i=0; i < param.length; i++){
       const address_temp = this.fb.group({
-        address: [param[i].address],
-        zipcode: [param[i].zipcode],
-        city: [param[i].city],
-        country: [param[i].country]
+        address: [param[i].address, Validators.required],
+        zipcode: [param[i].zipcode, Validators.required],
+        city: [param[i].city, Validators.required],
+        country: [param[i].country, Validators.required]
       })
 
       this.getAddressess2.push(address_temp)

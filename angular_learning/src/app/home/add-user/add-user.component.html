@@ -103,14 +103,14 @@
               placeholder="dzaki"
               formControlName="address"
             />
-            <!-- <mat-error
+            <mat-error
               *ngIf="
-                !signupForm.get('address').valid &&
-                signupForm.get('address').touched
+                !signupForm.get('addresses').at(i).get('address').valid &&
+                signupForm.get('addresses').at(i).get('address').touched
               "
             >
               Please enter a valid Address
-            </mat-error> -->
+            </mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline" class="form-group">
             <mat-label>Enter your zipcode</mat-label>
@@ -120,14 +120,14 @@
               placeholder="2"
               formControlName="zipcode"
             />
-            <!-- <mat-error
+            <mat-error
               *ngIf="
-                !signupForm.get('zipcode').valid &&
-                signupForm.get('zipcode').touched
+                !signupForm.get('addresses').at(i).get('zipcode').valid &&
+                signupForm.get('addresses').at(i).get('zipcode').touched
               "
             >
               Please enter a valid zipcode
-            </mat-error> -->
+            </mat-error>
           </mat-form-field>
           <br />
           <mat-form-field appearance="outline" class="form-group">
@@ -138,14 +138,14 @@
               placeholder="dzaki"
               formControlName="city"
             />
-            <!-- <mat-error
+            <mat-error
               *ngIf="
-                !signupForm.get('city').valid &&
-                signupForm.get('city').touched
+                !signupForm.get('addresses').at(i).get('city').valid &&
+                signupForm.get('addresses').at(i).get('city').touched
               "
             >
               Please enter a valid City
-            </mat-error> -->
+            </mat-error>
           </mat-form-field>
           <mat-form-field appearance="outline" class="form-group">
             <mat-label>Enter your Country</mat-label>
@@ -155,14 +155,14 @@
               placeholder="dzaki"
               formControlName="country"
             />
-            <!-- <mat-error
+            <mat-error
               *ngIf="
-                !signupForm.get('country').valid &&
-                signupForm.get('country').touched
+                !signupForm.get('addresses').at(i).get('country').valid &&
+                signupForm.get('addresses').at(i).get('country').touched
               "
             >
               Please enter a valid Country
-            </mat-error> -->
+            </mat-error>
           </mat-form-field>
           <br />
           <button type="button" class="btn btn-danger" (click)="onDeleteAddresses(i)">Remove Addresses</button>

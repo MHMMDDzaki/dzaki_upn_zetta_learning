@@ -43,10 +43,10 @@ export class AddUserComponent implements OnInit {
 
   onAddAddress(){
     const address_temp = this.fb.group({
-      address: [null],
-      zipcode: [null],
-      city: [null],
-      country: [null]
+      address: [null, Validators.required],
+      zipcode: [null, Validators.required],
+      city: [null, Validators.required],
+      country: [null, Validators.required]
     })
 
     this.getAddressess.push(address_temp)
