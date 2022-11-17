@@ -12,6 +12,7 @@ import { UsersComponent } from './home/users/users.component';
 import { EditUserComponent } from './home/edit-user/edit-user.component';
 import { UserDetailComponent } from './home/users/user-detail/user-detail.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { CustomPipePipe } from './pipes/custom-pipe.pipe';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
     AddUserComponent,
     UsersComponent,
     EditUserComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    CustomPipePipe
   ],
   imports: [
     BrowserModule,

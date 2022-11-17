@@ -11,7 +11,8 @@ export class HomeComponent implements OnInit {
   listUsers: {
     id: string,username: string,age: number,email: string,gender: string,position: string,maritalStatus: string,addresses: any
   }[] = []
-  
+  filteredCard = ''
+
   constructor(private userFormService: UserFormService, private router: Router) { }
 
   ngOnInit(): void {
