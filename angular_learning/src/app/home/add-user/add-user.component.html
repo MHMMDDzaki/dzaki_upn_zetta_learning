@@ -35,7 +35,7 @@
         <mat-error
           *ngIf="!signupForm.get('age').valid && signupForm.get('age').touched"
         >
-          Please enter a valid age
+          Age should be above 10 years old
         </mat-error>
       </mat-form-field>
       <br />
@@ -241,11 +241,11 @@
         <br />
       </div> -->
 
-      <span *ngIf="!signupForm.valid && signupForm.touched" class="fw-bold"
+      <!-- <span *ngIf="!signupForm.valid && signupForm.touched" class="fw-bold"
         >Please enter valid data before submit!
-      </span>
+      </span> -->
       <br />
-      <button class="btn btn-primary mt-4" type="submit">Submit</button>
+      <button class="btn btn-primary mt-4" [disabled]="!signupForm.valid" type="submit">Submit</button>
     </form>
   </mat-card>
 </div>
