@@ -39,30 +39,44 @@ export class EditUserComponent implements OnInit {
         gender: [this.userData.gender, Validators.required],
         position: [this.userData.position, Validators.required],
         maritalStatus: [this.userData.maritalStatus, Validators.required],
-        addresses: this.fb.array([this.userData.addresses])
+        addresses: this.fb.array([])
       })
 
-      // this.getAddressess2.push(this.userData.addresses)
+      this.onAddAddress(this.userData.addresses)
+  }
+
+  onAddAddress(param){
+    for(let i=0; i < param.length; i++){
+      const address_temp = this.fb.group({
+        address: [param[i].address],
+        zipcode: [param[i].zipcode],
+        city: [param[i].city],
+        country: [param[i].country]
+      })
+
+      this.getAddressess2.push(address_temp)
+    }
   }
 
   get getAddressess2(){
     return this.signupForm.get('addresses') as FormArray
   }
 
+  onDeleteAddresses(i){
+    this.getAddressess2.removeAt(i)
+  }
+
   onEdit(){
-    // this.userData = {
-    //   id: this.signupForm.value.id,
-    //   username: this.signupForm.value.username,
-    //   age: this.signupForm.value.age,
-    //   email: this.signupForm.value.email,
-    //   gender: this.signupForm.value.gender,
-    //   position: this.signupForm.value.position,
-    //   maritalStatus: this.signupForm.value.maritalStatus,
-    //   // addresses: this.signupForm.value.addresses
-    //   // zipcode: this.signupForm.value.addresses.zipcode,
-    //   // city: this.signupForm.value.addresses.city,
-    //   // country: this.signupForm.value.addresses.country
-    // }
+    this.userData = {
+      id: this.signupForm.value.id,
+      username: this.signupForm.value.username,
+      age: this.signupForm.value.age,
+      email: this.signupForm.value.email,
+      gender: this.signupForm.value.gender,
+      position: this.signupForm.value.position,
+      maritalStatus: this.signupForm.value.maritalStatus,
+      addresses: this.signupForm.value.addresses
+    }
     console.log(this.userData)
     this.userFormService.editUser(this.userData)
     this.router.navigate([''])
