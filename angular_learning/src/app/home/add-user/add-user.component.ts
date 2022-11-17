@@ -19,10 +19,7 @@ export class AddUserComponent implements OnInit {
     gender: string,
     position: string,
     maritalStatus: string,
-    address: string,
-    zipcode: number,
-    city: string,
-    country: string
+    addresses: any
   }
 
   constructor(private userFormService: UserFormService, private router: Router, private fb: FormBuilder){}
@@ -57,23 +54,24 @@ export class AddUserComponent implements OnInit {
 
   onSubmit(){
     console.log(this.signupForm.value)
-    // this.userData = {
-    //   id: this.signupForm.value.id,
-    //   username: this.signupForm.value.username,
-    //   age: this.signupForm.value.age,
-    //   email: this.signupForm.value.email,
-    //   gender: this.signupForm.value.gender,
-    //   position: this.signupForm.value.position,
-    //   maritalStatus: this.signupForm.value.maritalStatus,
-    //   address: this.signupForm.value.addresses.address,
-    //   zipcode: this.signupForm.value.addresses.zipcode,
-    //   city: this.signupForm.value.addresses.city,
-    //   country: this.signupForm.value.addresses.country
-    // }
-    // console.log(this.userData)
-    // if(this.userFormService.addUser(this.userData) === 1){
-    //   this.router.navigate([''])
-    // }
+    this.userData = {
+      id: this.signupForm.value.id,
+      username: this.signupForm.value.username,
+      age: this.signupForm.value.age,
+      email: this.signupForm.value.email,
+      gender: this.signupForm.value.gender,
+      position: this.signupForm.value.position,
+      maritalStatus: this.signupForm.value.maritalStatus,
+      addresses: this.signupForm.value.addresses
+    }
+    console.log(this.userData)
+    if(this.userFormService.addUser(this.userData) === 1){
+      this.router.navigate([''])
+    }
+  }
+
+  onDeleteAddresses(i){
+    this.getAddressess.removeAt(i)
   }
 
 }

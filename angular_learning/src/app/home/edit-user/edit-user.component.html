@@ -85,10 +85,91 @@
         </mat-form-field>
         <br />
   
-        <h3>Address</h3>
-        <hr/>
+        <!-- <h3>Address</h3>
+        <hr/> -->
+
+        <div formArrayName="addresses">
+          <div
+            class="addressGroup"
+            *ngFor="let addressInput of getAddressess2.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <h3>Address {{ i+1 }}</h3>
+            <hr />
+            <mat-form-field appearance="outline" class="form-group">
+              <mat-label>Enter your Adress</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="dzaki"
+                formControlName="address"
+              />
+              <!-- <mat-error
+                *ngIf="
+                  !signupForm.get('address').valid &&
+                  signupForm.get('address').touched
+                "
+              >
+                Please enter a valid Address
+              </mat-error> -->
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="form-group">
+              <mat-label>Enter your zipcode</mat-label>
+              <input
+                matInput
+                type="number"
+                placeholder="2"
+                formControlName="zipcode"
+              />
+              <!-- <mat-error
+                *ngIf="
+                  !signupForm.get('zipcode').valid &&
+                  signupForm.get('zipcode').touched
+                "
+              >
+                Please enter a valid zipcode
+              </mat-error> -->
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="outline" class="form-group">
+              <mat-label>Enter your City</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="dzaki"
+                formControlName="city"
+              />
+              <!-- <mat-error
+                *ngIf="
+                  !signupForm.get('city').valid &&
+                  signupForm.get('city').touched
+                "
+              >
+                Please enter a valid City
+              </mat-error> -->
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="form-group">
+              <mat-label>Enter your Country</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="dzaki"
+                formControlName="country"
+              />
+              <!-- <mat-error
+                *ngIf="
+                  !signupForm.get('country').valid &&
+                  signupForm.get('country').touched
+                "
+              >
+                Please enter a valid Country
+              </mat-error> -->
+            </mat-form-field>
+            <br />
+          </div>
+        </div>
   
-        <div class="addressGroup" formGroupName="addresses">
+        <!-- <div class="addressGroup" formGroupName="addresses">
           <mat-form-field appearance="outline" class="form-group">
             <mat-label>Enter your Adress</mat-label>
             <input
@@ -159,7 +240,7 @@
             </mat-error>
           </mat-form-field>
           <br />
-        </div>
+        </div> -->
   
         <span *ngIf="!signupForm.valid && signupForm.touched" class="fw-bold"
           >Please enter valid data before submit!

@@ -9,7 +9,7 @@ import { UserFormService } from 'src/app/user-form.service';
 })
 export class UserDetailComponent implements OnInit {
   user: {
-    id: string,username: string,age: number,email: string,gender: string,position: string,maritalStatus: string,address: string,zipcode: number,city: string,country: string
+    id: string, username: string, age: number, email: string, gender: string, position: string, maritalStatus: string, addresses: { address: string, zipcode: number, city: string, country: string }[]
   }
 
   constructor(private userFormService: UserFormService, private route: ActivatedRoute) { }
@@ -17,8 +17,8 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
-        this.user = this.userFormService.getUser(this.userFormService.DataUser.findIndex(item => { return item.id === params['id']}))
-        console.log(this.user)
+        this.user = this.userFormService.getUser(this.userFormService.DataUser.findIndex(item => { return item.id === params['id'] }))
+        console.log(this.user.addresses[0].address)
       })
   }
 

@@ -9,7 +9,7 @@ import { UserFormService } from '../user-form.service';
 })
 export class HomeComponent implements OnInit {
   listUsers: {
-    id: string,username: string,age: number,email: string,gender: string,position: string,maritalStatus: string,address: string,zipcode: number,city: string,country: string
+    id: string,username: string,age: number,email: string,gender: string,position: string,maritalStatus: string,addresses: any
   }[] = []
   
   constructor(private userFormService: UserFormService, private router: Router) { }

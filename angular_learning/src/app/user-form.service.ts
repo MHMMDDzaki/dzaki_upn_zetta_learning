@@ -13,10 +13,12 @@ export class UserFormService {
       gender: 'Male',
       position: 'Front End',
       maritalStatus: 'Single',
-      address: 'Cempaka Putih',
-      zipcode: 12345,
-      city: 'Jakarta',
-      country: 'Indonesia'
+      addresses: [{
+        address: 'Cempaka Putih',
+        zipcode: 12345,
+        city: 'Jakarta',
+        country: 'Indonesia'
+      }]
     },
     {
       id: 'FE135',
@@ -26,10 +28,12 @@ export class UserFormService {
       gender: 'Male',
       position: 'Front End',
       maritalStatus: 'Single',
-      address: 'Cempaka Putih',
-      zipcode: 12345,
-      city: 'Jakarta',
-      country: 'Indonesia'
+      addresses: [{
+        address: 'Cempaka Putih',
+        zipcode: 12345,
+        city: 'Jakarta',
+        country: 'Indonesia'
+      }]
     },
     {
       id: 'FE136',
@@ -39,10 +43,12 @@ export class UserFormService {
       gender: 'Male',
       position: 'Front End',
       maritalStatus: 'Single',
-      address: 'Cempaka Putih',
-      zipcode: 12345,
-      city: 'Jakarta',
-      country: 'Indonesia'
+      addresses: [{
+        address: 'Cempaka Putih',
+        zipcode: 12345,
+        city: 'Jakarta',
+        country: 'Indonesia'
+      }]
     }
   ]
   msg: number
@@ -69,10 +75,10 @@ export class UserFormService {
       this.DataUser[temp].gender = param.gender
       this.DataUser[temp].position = param.position
       this.DataUser[temp].maritalStatus = param.maritalStatus
-      this.DataUser[temp].address = param.address
-      this.DataUser[temp].zipcode = param.zipcode
-      this.DataUser[temp].city = param.city
-      this.DataUser[temp].country = param.country
+      // this.DataUser[temp].address = param.address
+      // this.DataUser[temp].zipcode = param.zipcode
+      // this.DataUser[temp].city = param.city
+      // this.DataUser[temp].country = param.country
     } 
   }
 

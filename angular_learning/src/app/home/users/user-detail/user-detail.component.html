@@ -9,14 +9,16 @@
       Gender : {{ user.gender }}<br/>
       Position : {{ user.position }}<br/>
     </p>
-    <hr>
-    <h4>Address : </h4>
-    <p class="fs-6">
-        address : {{ user.address }}<br/>
-        zipcode : {{ user.zipcode }}<br/>
-        city : {{ user.city }}<br/>
-        country : {{ user.country }}<br/>
-    </p>
+    <div *ngFor="let prop of user.addresses; let i = index">
+      <hr>
+      <h4>Address {{i+1}} </h4>
+      <p class="fs-6">
+          address : {{ prop.address }}<br/>
+          zipcode : {{ prop.zipcode }}<br/>
+          city : {{ prop.city }}<br/>
+          country : {{ prop.country }}<br/>
+      </p>
+    </div>
     <hr>
     <button class="btn btn-primary" [routerLink]="['']">Home</button>
   </div>
