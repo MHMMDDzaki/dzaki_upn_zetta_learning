@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import Swal from 'sweetalert2'
 
 @Injectable({
   providedIn: 'root'
@@ -66,9 +67,18 @@ export class UserFormService {
   addUser(param) {
     if(this.DataUser.map(item => item.id).indexOf(param.id) === -1){
       this.DataUser.push(param)
+      Swal.fire(
+        'Good Job!',
+        'Data Has been Added!',
+        'success'
+      )
       return this.msg=1
     } else {
-      alert('Please Input Diffrent ID')
+      Swal.fire(
+        'Error!',
+        'Please Input diffrent ID!',
+        'error'
+      )
       return this.msg=0
     } 
   }
@@ -84,9 +94,12 @@ export class UserFormService {
       this.DataUser[temp].position = param.position
       this.DataUser[temp].maritalStatus = param.maritalStatus
       this.DataUser[temp].addresses = param.addresses
-      // this.DataUser[temp].zipcode = param.zipcode
-      // this.DataUser[temp].city = param.city
-      // this.DataUser[temp].country = param.country
+
+      Swal.fire(
+        'Good Job!',
+        'Data Successfully Edited!',
+        'success'
+      )
     } 
   }
 

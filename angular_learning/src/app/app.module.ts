@@ -11,6 +11,7 @@ import { AddUserComponent } from './home/add-user/add-user.component';
 import { UsersComponent } from './home/users/users.component';
 import { EditUserComponent } from './home/edit-user/edit-user.component';
 import { UserDetailComponent } from './home/users/user-detail/user-detail.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -34,7 +35,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     MaterialExampleModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
