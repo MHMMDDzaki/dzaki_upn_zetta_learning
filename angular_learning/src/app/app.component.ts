@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ServerReqService } from './server-req.service';
+import { observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  showFiller = false;
+  posts: any
+
+  constructor(private server: ServerReqService){}
+
+  onGetPost(){
+    this.posts=this.server.getPost()
+    this.posts.subscribe(data => {
+      console.log(data)
+    })
+  }
 }

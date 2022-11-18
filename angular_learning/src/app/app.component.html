@@ -1,1 +1,27 @@
-<h1>It Works</h1>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <ul>
+      <li><button  (click)="onGetPost()" type="button">Get Post</button></li>
+      <li>Send Post</li>
+    </ul>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+    <div class="main-menu">
+        <div *ngFor="let post of posts | async">
+            <mat-card>
+                <mat-card-title>{{post.title}}</mat-card-title>
+                <mat-card-content>
+                    ID : {{post.id}}<br/>
+                    User ID : {{post.userId}}<br/>
+                    description : <br />
+                    {{post.body}}
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+  </div>
+</mat-drawer-container>
