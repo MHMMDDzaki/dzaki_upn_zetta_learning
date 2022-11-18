@@ -9,7 +9,7 @@
 </div>
 <div class="d-flex justify-content-around cards mx-auto flex-wrap">
     <app-users
-        *ngFor="let listUser of listUsers | customPipe:filteredCard let i = index"
+        *ngFor="let listUser of listUsers | customPipe:filteredCard; let i = index"
         [userList]="listUser"
     ></app-users>
 </div>

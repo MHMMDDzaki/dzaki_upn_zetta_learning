@@ -8,7 +8,7 @@ export class UserFormService {
   DataUser = [
     {
       id: 'FE134',
-      username: 'Muhammad Dzaki',
+      username: 'Abdi Dwi Ramdani',
       age: 29,
       email: 'dzakzo@email',
       gender: 'Male',
@@ -23,7 +23,7 @@ export class UserFormService {
     },
     {
       id: 'FE135',
-      username: 'Muhammad Dzaki',
+      username: 'Alfinhi Hajid',
       age: 29,
       email: 'dzakzo@email',
       gender: 'Male',
