@@ -16,7 +16,7 @@ export class ServerReqService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getPost(){
-    let params = new HttpParams().set('id','101')
+    let params = new HttpParams().set('userId','1')
     return this.posts = this.http.get<Post[]>(this.ROOT_URL + '/posts', { params })
   }
 
@@ -28,10 +28,7 @@ export class ServerReqService {
       body: param.body
     }
     this.newPost = this.http.post(this.ROOT_URL + '/posts', data)
-    this.newPost.subscribe(data => {
-      console.log(data)
-    })
-    this.router.navigate([''])
+    console.log(this.newPost)
 
     return this.newPost
   }

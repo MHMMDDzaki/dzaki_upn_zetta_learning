@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SendDataComponent } from './send-data/send-data.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
     MatCardModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
