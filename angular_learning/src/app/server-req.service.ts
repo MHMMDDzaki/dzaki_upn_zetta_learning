@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Post } from './post';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +13,26 @@ export class ServerReqService {
   posts: Observable<Post[]>;
   newPost: Observable<any>
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   getPost(){
-    return this.posts = this.http.get<Post[]>(this.ROOT_URL + '/posts')
+    let params = new HttpParams().set('id','101')
+    return this.posts = this.http.get<Post[]>(this.ROOT_URL + '/posts', { params })
   }
 
-  sendPost(){
-    // let headers = new HttpHeaders().set('Authorization','auth-token')
-    // const data: Post = {
+  sendPost(param){
+    const data: Post = {
+      id: null,
+      userId: param.userId,
+      title: param.title,
+      body: param.body
+    }
+    this.newPost = this.http.post(this.ROOT_URL + '/posts', data)
+    this.newPost.subscribe(data => {
+      console.log(data)
+    })
+    this.router.navigate([''])
 
-    // }
+    return this.newPost
   }
 }

@@ -11,25 +11,27 @@ import { ServerReqService } from '../server-req.service';
 export class SendDataComponent implements OnInit {
   signupForm: FormGroup
   userData: {
-    id: string,
-    username: string
+    userId: number,
+    title: string,
+    body: string
   }
   constructor(private server: ServerReqService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
-      id: [null, Validators.required],
-      username: [null, Validators.required]
+      userId: [null, Validators.required],
+      title: [null, Validators.required],
+      body: [null, Validators.required]
     })
   }
 
   onSubmit(){
-    console.log(this.signupForm.value)
     this.userData = {
-      id: this.signupForm.value.id,
-      username: this.signupForm.value.username
+      userId: this.signupForm.value.userId,
+      title: this.signupForm.value.title,
+      body: this.signupForm.value.body
     }
-    // console.log(this.userData)
+    this.server.sendPost(this.userData)
     // if(this.userFormService.addUser(this.userData) === 1){
     //   this.router.navigate([''])
     // }
