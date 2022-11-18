@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="main-menu">
+  <div *ngFor="let post of posts | async">
+    <mat-card>
+      <mat-card-title>{{ post.title }}</mat-card-title>
+      <mat-card-content>
+        ID : {{ post.id }}<br />
+        User ID : {{ post.userId }}<br />
+        description : <br />
+        {{ post.body }}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

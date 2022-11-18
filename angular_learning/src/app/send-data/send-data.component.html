@@ -1,0 +1,39 @@
+<div class="container">
+  <mat-card>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <h3>Post Data</h3>
+      <hr />
+      <mat-form-field appearance="outline" class="form-group">
+        <mat-label>Enter your ID number</mat-label>
+        <input matInput type="number" placeholder="1" formControlName="id" />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline" class="form-group">
+        <mat-label>Enter your userId</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="1"
+          formControlName="userId"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-group">
+        <mat-label>Enter your title</mat-label>
+        <input
+          matInput
+          type="text"
+          placeholder="Harry Potter"
+          formControlName="title"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-group">
+        <mat-label>Enter your description</mat-label>
+        <textarea 
+            matInput 
+            placeholder="Ex. It makes me feel..."
+            formControlName="body"
+        ></textarea>
+      </mat-form-field>
+    </form>
+  </mat-card>
+</div>

@@ -26,19 +26,10 @@ li {
     height: 100%;
 }
 
-.main-menu {
-    display: flex;
-    flex-wrap: wrap;
-    overflow-y: scroll;
-}
-
-
 .example-sidenav {
     padding: 0 20px;
 }
 
-.mat-card {
-    margin: 0 20px 20px 20px;
-    height: 250px;
-    max-width: 500px;
+.content{
+    overflow-y: scroll;
 }

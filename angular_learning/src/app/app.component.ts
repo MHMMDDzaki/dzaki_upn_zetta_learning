@@ -8,7 +8,6 @@ import { observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  showFiller = false;
   posts: any
 
   constructor(private server: ServerReqService){}
